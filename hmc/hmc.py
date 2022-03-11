@@ -175,7 +175,6 @@ def hide_window():
     """
     Hides the window
     """
-    global win
     win.withdraw()
 
 
