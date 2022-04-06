@@ -1,1 +1,1 @@
-{"tolerances": {"nexttrack": 0.9, "none": 0.0, "playpause": 0.97, "prevtrack": 0.97}, "time_gap": 0.6, "verbose": true, "camera": 0, "display": true}
+{"tolerances": {"nexttrack": 0.95, "none": 0.0, "playpause": 0.98, "prevtrack": 0.98}, "time_gap": 0.6, "verbose": true, "camera": 0, "display": true}

@@ -1,6 +1,5 @@
 """
 Author: Cristian Bastidas
-Escuela Politecnica Nacional
 
 Date: 2020-03-01
 """
