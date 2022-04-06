@@ -33,7 +33,7 @@ import tensorflow as tf
 set_printoptions(suppress=True)
 
 # BASIC VARIABLES
-interpreter = tf.lite.Interpreter(model_path="converted_model.tflite")
+interpreter = tf.lite.Interpreter(model_path="models/hmc.tflite")
 interpreter.allocate_tensors()
 input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
