@@ -143,7 +143,6 @@ def load_config():
     """
     Loads the configuration file
     """
-    global TOLERANCES, TIME_GAP, VERBOSE, CAMERA, DISPLAY
     print("Loading configuration")
     data = None
     try:
