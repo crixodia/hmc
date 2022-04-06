@@ -4,6 +4,7 @@ Author: Cristian Bastidas
 Date: 2020-03-01
 """
 
+from ast import Try
 from json import dump, load
 from os import _exit
 from sys import exit
@@ -23,15 +24,21 @@ from cv2 import resize as cv2_resize
 from imutils import resize
 from imutils.video import VideoStream
 from keyboard import is_pressed
-from numpy import argmax, array, float32, ndarray, set_printoptions
+from numpy import argmax, array, float32, interp, ndarray, set_printoptions
 from PIL import Image, ImageTk
 from pyautogui import press
-from keras.models import load_model
+
+import tensorflow as tf
 
 set_printoptions(suppress=True)
 
 # BASIC VARIABLES
-MODEL = load_model('hmc.h5')
+interpreter = tf.lite.Interpreter(model_path="converted_model.tflite")
+interpreter.allocate_tensors()
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
+
+
 CLASS_NAMES = ["nexttrack", "none", "playpause", "prevtrack"]
 TOLERANCES = [0.93, 0.0, 0.91, 0.91]
 TIME_GAP = 0.6
@@ -187,8 +194,8 @@ exit_button = Button(win, text="Exit", command=exit)
 
 camera_select.place(x=266, y=440)
 apply_button.place(x=10, y=510)
-hide_button.place(x=60, y=510)
-exit_button.place(x=105, y=510)
+hide_button.place(x=70, y=510)
+exit_button.place(x=125, y=510)
 
 
 def main():
@@ -219,8 +226,10 @@ def main():
     normalized_img_array = (img_array.astype(float32) / 127.0) - 1
 
     data[0] = normalized_img_array
+    interpreter.set_tensor(input_details[0]['index'], data)
+    interpreter.invoke()
 
-    prediction = MODEL.predict(data)
+    prediction = interpreter.get_tensor(output_details[0]['index'])
 
     index = argmax(prediction)
     class_name = CLASS_NAMES[index]
@@ -235,7 +244,11 @@ def main():
         font_color = (0, 255, 0)
 
     end = time()
-    fps = 1/(end - start)
+    fps = 0
+    if end - start == 0:
+        raise Exception("ZeroFPS: The camera is not working fine")
+    else:
+        fps = 1/(end - start)
 
     # FPS
     putText(
