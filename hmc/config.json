@@ -1,6 +1,6 @@
 {
     "tolerances": {
-        "nexttrack": 0.99,
+        "nexttrack": 0.9,
         "none": 0.0,
         "playpause": 0.99,
         "prevtrack": 0.99
