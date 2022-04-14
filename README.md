@@ -73,7 +73,7 @@ You are able to change the camera that is used to capture the video. The default
 Finally, you can change the time between actions. This is useful whether you want to trigger the action too often or not.
 
 ## Build an executable
-It is a official release coming soon. Meanwhile you can create an executable using [pyinstaller](https://pyinstaller.org/en/stable/). The [specs](./hmc/HandMusicChanger.spec) are already defined, just excecute the following command:
+It is a official release coming soon. Meanwhile you can create an executable using [pyinstaller](https://pyinstaller.org/en/stable/). The [specs](./hmc/HandMusicChanger.spec) are already defined, just execute the following command:
 
 ```shell
 pyinstaller HandMusicChanger.spec hmc.py
