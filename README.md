@@ -20,7 +20,9 @@ The CNN trained for the app model is based on [MobileNetv2](https://keras.io/api
 
 The model uses three hand gestures from the [dataset](./assets/HandsPosturev5.zip) and another class of random images for the negative samples. The gestures used are shown below:
 
-![](./assets/dataset_preview.png)
+<p align="center">
+  <img src="./assets/dataset_preview.png">
+</p>
 
 ## How to use it?
 
@@ -52,16 +54,29 @@ There is a button to hide the camera feed. You must use `Ctrl+Alt+Shift+D` to sh
 
 ## Hand signs
 
-|         Play/Pause ✋         |     Next song 👈      |     Previous song ✊      |
-| :--------------------------: | :------------------: | :----------------------: |
-| ![](./assets/play_pause.jpg) | ![](assets/next.jpg) | ![](assets/previous.jpg) |
+<p align="center">
+<table>
+  <tr>
+    <td><strong>Play/Pause ✋</strong></td>
+    <td><strong>Next song 👈</strong></td>
+    <td><strong>Previous song ✊</strong></td>
+  </tr>
+  <tr>
+    <td><img src="./assets/play_pause.jpg" alt="Play/Pause"></td>
+    <td><img src="assets/next.jpg" alt="Next song"></td>
+    <td><img src="assets/previous.jpg" alt="Previous song"></td>
+  </tr>
+</table>
+</p>
 
 It is worth say that it does not matter if you flip the gesture, it will work because of the data augmentation during training.
 
 ## Configuration
 Certainly there are a variety of environments to use the app. That is why there are some configuration options.
 
-![preview](assets/preview.gif)
+<p align="center">
+  <img src="assets/preview.gif">
+</p>
 
 ### Tolerances
 You can adjust the tolerances and the time gap to make the app more accurate. For instance, if `play/pause` does not work properly, you can try decreasing the tolerance for this hand sign, so it will be triggered with less confidence score. But, if the app suddenly changes or pauses the song you should increase the required confidence score to trigger the action.
