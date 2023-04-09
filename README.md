@@ -1,4 +1,5 @@
 # 🎶 Hand Music Changer ✋👈✊
+
 Hand Music Changer is a tool for changing the music with your hands trough your camera. It uses a CNN to detect your hand and change the music.
 
 - [🎶 Hand Music Changer ✋👈✊](#-hand-music-changer-)
@@ -14,6 +15,7 @@ Hand Music Changer is a tool for changing the music with your hands trough your 
   - [Build an executable](#build-an-executable)
 
 ## How is it made?
+
 The CNN trained for the app model is based on [MobileNetv2](https://keras.io/api/applications/mobilenet/) from Keras. This approach allows us to transfer its learning for our purposes. You can check out the [notebook](hmc.ipynb) for more information and technical details.
 
 ### Dataset
@@ -54,24 +56,14 @@ There is a button to hide the camera feed. You must use `Ctrl+Alt+Shift+D` to sh
 
 ## Hand signs
 
-<p align="center">
-<table>
-  <tr>
-    <td><strong>Play/Pause ✋</strong></td>
-    <td><strong>Next song 👈</strong></td>
-    <td><strong>Previous song ✊</strong></td>
-  </tr>
-  <tr>
-    <td><img src="./assets/play_pause.jpg" alt="Play/Pause"></td>
-    <td><img src="assets/next.jpg" alt="Next song"></td>
-    <td><img src="assets/previous.jpg" alt="Previous song"></td>
-  </tr>
-</table>
-</p>
+|         Play/Pause ✋         |     Next song 👈      |     Previous song ✊      |
+| :--------------------------: | :------------------: | :----------------------: |
+| ![](./assets/play_pause.jpg) | ![](assets/next.jpg) | ![](assets/previous.jpg) |
 
 It is worth say that it does not matter if you flip the gesture, it will work because of the data augmentation during training.
 
 ## Configuration
+
 Certainly there are a variety of environments to use the app. That is why there are some configuration options.
 
 <p align="center">
@@ -79,15 +71,19 @@ Certainly there are a variety of environments to use the app. That is why there 
 </p>
 
 ### Tolerances
+
 You can adjust the tolerances and the time gap to make the app more accurate. For instance, if `play/pause` does not work properly, you can try decreasing the tolerance for this hand sign, so it will be triggered with less confidence score. But, if the app suddenly changes or pauses the song you should increase the required confidence score to trigger the action.
 
 ### Selected camera
+
 You are able to change the camera that is used to capture the video. The default camera is the first one. With this option you can use other camera for other purposes and other one dedicated to the app.
 
 ### Time gap
+
 Finally, you can change the time between actions. This is useful whether you want to trigger the action too often or not.
 
 ## Build an executable
+
 It is a official release coming soon. Meanwhile you can create an executable using [pyinstaller](https://pyinstaller.org/en/stable/). The [specs](./hmc/HandMusicChanger.spec) are already defined, just execute the following command:
 
 ```shell
